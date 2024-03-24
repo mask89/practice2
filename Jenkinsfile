@@ -11,13 +11,13 @@ pipeline{
         stage('Build image'){
             steps {
             sh 'whoami '
-            sh 'docker build . -t sunguyen88/suubuntu:1.2'
+            sh 'docker build . -t sunguyen88/suubuntu:0.1'
          }
         }
         
         stage('Push to Hub'){
             steps {
-            sh 'docker push sunguyen88/suubuntu:1.2'
+            sh 'docker push sunguyen88/suubuntu:0.1'
             }
                 
         }
@@ -32,7 +32,7 @@ pipeline{
 	stage(''){
 		steps{
 			script{
-				docker run -d -p 8181:80 -rm --name suubuntu --it sunguyen88/suubuntu:1.2 /bin/bash
+				docker run -d -p 8181:80 -rm --name suubuntu --it sunguyen88/suubuntu:0.1 /bin/bash
 			}
 		}
 	}
