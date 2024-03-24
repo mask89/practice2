@@ -32,7 +32,7 @@ pipeline{
         stage('Docker run'){
             steps{
                 script{
-                    docker run -d -p 8181:80 -rm --name suubuntu --it sunguyen88/suubuntu:0.1 /bin/bash
+                    sh 'docker run -d -p 8181:80 -rm --name suubuntu --it sunguyen88/suubuntu:0.1 /bin/bash'
                 }
             }
         }
