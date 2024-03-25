@@ -1,4 +1,4 @@
 FROM nginx
-COPY index.html /usr/share/nginx/html/index.html
+COPY index.demo.html /usr/share/nginx/html/index.html
 CMD [“nginx”, “-g”, “daemon on;”]
 EXPOSE 80
