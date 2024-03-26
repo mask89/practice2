@@ -22,20 +22,20 @@ pipeline{
 
         }
 //Stop existing docker container for clean up
-        stage('Stop existing container'){
-            stpes{
-                sh 'docker ps -f name=suubuntu -q | xargs --no-run-if-empty docker container stop'
-                sh 'docker container ls -a -f name=suubuntu -q | xargs -r docker container rm'    
-            }
-        }
+//        stage('Stop existing container'){
+//            stpes{
+//                sh 'docker ps -f name=suubuntu -q | xargs --no-run-if-empty docker container stop'
+//                sh 'docker container ls -a -f name=suubuntu -q | xargs -r docker container rm'    
+//            }
+//        }
 // Run docker container on local
-        stage('Docker run'){
-            steps{
-                script{
-                    sh 'docker run -d -p 8181:80 -rm --name suubuntu --it sunguyen88/suubuntu:0.1 /bin/bash'
-                }
-            }
-        }
+//        stage('Docker run'){
+//            steps{
+//                script{
+//                    sh 'docker run -d -p 8181:80 -rm --name suubuntu --it sunguyen88/suubuntu:0.1 /bin/bash'
+//                }
+//            }
+//        }
 
     }
 }
