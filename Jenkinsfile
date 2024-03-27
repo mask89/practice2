@@ -11,13 +11,13 @@ pipeline{
         stage('Build image'){
             steps {
             sh 'whoami '
-            sh 'docker build . -t sunguyen88/suubuntu:0.4'
+            sh 'docker build . -t sunguyen88/suubuntu:0.5'
          }
         }
 
         stage('Push to Hub'){
             steps {
-            sh 'docker push sunguyen88/suubuntu:0.4'
+            sh 'docker push sunguyen88/suubuntu:0.5'
             }
 
         }
