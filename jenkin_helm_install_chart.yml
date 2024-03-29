@@ -1,0 +1,8 @@
+---
+- hosts: k8s
+  tasks:
+    - name: Install Nginx Chart
+      kubernetes.core.helm:
+        name: test5nginx
+        namespace: default
+        chart_ref: /home/administrator/helm_practices/test1nginx
