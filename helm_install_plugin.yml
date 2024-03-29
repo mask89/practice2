@@ -1,0 +1,8 @@
+---
+- hosts: k8s
+  tasks:
+    - name: Install Helm Plugin
+      kubernetes.core.helm_plugin:
+        plugin_path: https://github.com/abc/helm
+        state: present
+        release_namespace: dev

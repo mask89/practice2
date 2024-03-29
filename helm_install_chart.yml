@@ -1,0 +1,20 @@
+---
+- hosts: k8s
+  vars_prompt:
+    - name: chart_name
+      prompt: "What is chart|release name ?"
+      private: no
+    - name: chart_path
+      prompt: "What is chart location/repo ?"
+      private: no
+    - name: chart_ns
+      prompt: "Which is namespace ?"
+      private: no 
+  tasks:
+    - debug:
+        msg: 'We will deploy {{ chart_name }} from {{ chart_path }} to namespace {{ chart_ns }}'
+    - name: Install Nginx Chart
+      kubernetes.core.helm:
+        name: "{{ chart_name }}"
+        namespace: "{{ chart_ns }}"
+        chart_ref: "{{ chart_path }}"

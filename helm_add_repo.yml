@@ -1,0 +1,10 @@
+---
+- name: Adding Helm Repository with Ansible Playbook
+  hosts: k8s
+  vars:
+     helm_chart_url: "https://charts.bitnami.com/bitnami"
+  tasks:
+      - name: Add helm repo
+        kubernetes.core.helm_repository:
+            name: bitnami
+            repo_url: "{{ helm_chart_url }}"
