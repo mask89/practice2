@@ -23,17 +23,6 @@ pipeline{
 	            echo 'Login Completed'      
                 }           
         }   
-        stage('OWASP Dependency-Check') {
-            steps {
-                 dependencyCheck additionalArguments: ''' 
-                    -o './'
-                    -s './'
-                    -f 'ALL' 
-                    --prettyPrint''', odcInstallation: 'OWASP Dependency-Check'
-        
-        dependencyCheckPublisher pattern: 'dependency-check-report.xml'
-      }
-    }
 
         stage('Build image'){
             steps {
