@@ -2,7 +2,7 @@ pipeline{
     agent any
     
     environment {     
-    DOCKERHUB_CREDENTIALS= credentials('docker')     
+    DOCKERHUB_CREDENTIALS= credentials('dockertest')     
     } 
     
     stages{
@@ -33,9 +33,8 @@ pipeline{
 
         stage('Push to Hub'){
             steps {
-            sh 'docker push $DOCKERHUB_CREDENTIALS_USR/suubuntu:0.6'
+                sh 'docker push $DOCKERHUB_CREDENTIALS_USR/suubuntu:0.6'
             }
-
         }
         stage{
             steps{
