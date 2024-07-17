@@ -2,7 +2,7 @@ pipeline{
     agent any
     
     environment {     
-    DOCKERHUB_CREDENTIALS= credentials('dockercredential')     
+    DOCKERHUB_CREDENTIALS= credentials('docker')     
     } 
     
     stages{
@@ -36,6 +36,11 @@ pipeline{
             sh 'docker push $DOCKERHUB_CREDENTIALS_USR/suubuntu:0.6'
             }
 
+        }
+        stage{
+            steps{
+                sh 'trivy image suubuntu:0.6'
+            }
         }
 
     }
