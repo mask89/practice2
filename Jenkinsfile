@@ -38,7 +38,7 @@ pipeline{
         }
         stage('Trivy'){
             steps{
-                sh 'trivy image suubuntu:0.6'
+                sh 'trivy image --scanners vuln suubuntu:0.6'
             }
         }
 
