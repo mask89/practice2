@@ -36,7 +36,7 @@ pipeline{
                 sh 'docker push $DOCKERHUB_CREDENTIALS_USR/suubuntu:0.6'
             }
         }
-        stage{
+        stage('Trivy'){
             steps{
                 sh 'trivy image suubuntu:0.6'
             }
